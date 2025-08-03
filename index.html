@@ -87,6 +87,76 @@
       .skill-icon:hover {
         transform: scale(1.1) rotate(5deg);
       }
+
+      /* Carousel improvements */
+      .animate-infinite-scroll {
+        animation: infinite-scroll 30s linear infinite;
+      }
+
+      /* Footer improvements */
+      .footer-link {
+        transition: all 0.3s ease;
+      }
+
+      .footer-link:hover {
+        transform: translateX(5px);
+      }
+
+      /* Section consistency */
+      .section-padding {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+      }
+
+                   /* Card improvements */
+             .glass-card {
+               background: rgba(255, 255, 255, 0.1);
+               backdrop-filter: blur(10px);
+               border: 1px solid rgba(255, 255, 255, 0.2);
+             }
+
+             /* Project filtering animation */
+             @keyframes fadeIn {
+               from {
+                 opacity: 0;
+                 transform: translateY(20px);
+               }
+               to {
+                 opacity: 1;
+                 transform: translateY(0);
+               }
+             }
+
+             /* Filter button active state */
+             .filter-btn.active {
+               background: rgba(59, 130, 246, 0.3) !important;
+               border-color: rgba(59, 130, 246, 0.4) !important;
+             }
+
+             /* Enhanced filter button hover effects */
+             .filter-btn:hover {
+               transform: translateY(-2px) scale(1.02);
+               box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+             }
+
+             /* Category logo hover effects */
+             .category-logo {
+               transition: all 0.3s ease;
+             }
+
+             .category-logo:hover {
+               transform: rotate(5deg) scale(1.1);
+             }
+
+             /* Project card enhanced animations */
+             .project-card {
+               transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+             }
+
+             .project-card:hover {
+               transform: translateY(-8px) scale(1.02);
+               box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+             }
     </style>
     <!-- tailwind config -->
     <script>
@@ -333,13 +403,8 @@
             <h2 class="max-w-xl mb-6 text-3xl font-bold text-dark gradient-text">Summary</h2>
             <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20">
               <p class="text-base font-medium text-secondery leading-relaxed">
-                A Computer Science student with a profound interest in
-                programming, particularly as a backend developer. Possesses strong
-                knowledge in creating and utilizing REST APIs, designing database
-                structures, and programming logic. Additionally, capable of
-                implementing these skills across various tools and programming
-                languages such as Golang, PHP, MySQL, PostgreSQL, drawio, Postman,
-                and Docker.
+                An enthusiastic fresh graduate in Informatics Engineering, ready to contribute to the world of software development. I have three solid internship experiences as a Backend Developer, and have also completed an AWS Cloud Architect bootcamp which enriched my understanding of cloud infrastructure and system architecture. I am particularly interested in the areas of Web3, AI, and software development in general. I have demonstrated the ability to quickly learn new concepts, proactively address challenges, and apply my expertise effectively towards achieving team objectives
+
               </p>
             </div>
           </div>
@@ -553,7 +618,7 @@
     </section>
     <!-- Working Experience section end -->
 
-    <!-- Portofolio section -->
+    <!-- Portfolio section -->
     <section id="portofolio" data-aos="fade-up" class="pt-28 pb-28 bg-gradient-to-br from-darkblue via-blue-900 to-darkblue relative overflow-hidden">
       <!-- Background decoration -->
       <div class="absolute top-1/4 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
@@ -568,78 +633,280 @@
             <span class="inline-block px-4 py-2 text-sm font-medium text-primary bg-primary/20 rounded-full border border-primary/30 mb-4">
               🚀 Projects
             </span>
-            <h1 class="text-4xl font-bold text-white gradient-text">My Project</h1>
+            <h1 class="text-4xl font-bold text-white gradient-text">My Projects</h1>
+            <p class="text-lg text-white/80 mt-4">Explore my work across different technologies and domains</p>
           </div>
         </div>
 
-        <div class="flex flex-wrap justify-center lg:space-x-20">
-          <!-- card -->
-          <div
-            data-aos="flip-left"
-            class="block lg:w-[40%] mb-20 rounded-2xl bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:shadow-[0_16px_64px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-4 border border-white/20 overflow-hidden"
-          >
-            <a
-              href="https://github.com/Aguh18/AtehaFinanceTracker"
-              class="overflow-hidden bg-no-repeat bg-cover h-1/2 group"
+        <!-- Category Filters -->
+        <div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex flex-wrap justify-center gap-3">
+            <button 
+              onclick="filterProjects('all')" 
+              class="filter-btn active px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white border border-white/20 hover:bg-white/20 transition-all duration-300 font-medium flex items-center gap-2 group"
+              data-category="all"
             >
-              <img class="rounded-t-2xl w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="src/image/finance.png" alt="Finance Tracker" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </a>
-            <div class="p-8 h-1/2">
-              <h5
-                class="mb-3 text-xl font-bold leading-tight text-neutral-800 gradient-text"
-              >
-                Finance Tracker
-              </h5>
-              <p class="mb-4 text-base text-neutral-600 leading-relaxed">
-                A backend application is utilized to track both expenses and
-                income, accompanied by an authentication process.
-              </p>
-              <div class="flex items-center justify-between">
-                <p class="text-sm text-neutral-500 bg-gray-100 px-3 py-1 rounded-full">
-                  Build with : Gofiber, gorm , postgresql
+              <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-200" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              All Projects
+            </button>
+            <button 
+              onclick="filterProjects('backend')" 
+              class="filter-btn px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white border border-white/20 hover:bg-white/20 transition-all duration-300 font-medium flex items-center gap-2 group"
+              data-category="backend"
+            >
+              <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-200" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              Backend
+            </button>
+            <button 
+              onclick="filterProjects('frontend')" 
+              class="filter-btn px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white border border-white/20 hover:bg-white/20 transition-all duration-300 font-medium flex items-center gap-2 group"
+              data-category="frontend"
+            >
+              <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-200" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+              </svg>
+              Frontend
+            </button>
+            <button 
+              onclick="filterProjects('web3')" 
+              class="filter-btn px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white border border-white/20 hover:bg-white/20 transition-all duration-300 font-medium flex items-center gap-2 group"
+              data-category="web3"
+            >
+              <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-200" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              WEB3
+            </button>
+            <button 
+              onclick="filterProjects('ai')" 
+              class="filter-btn px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white border border-white/20 hover:bg-white/20 transition-all duration-300 font-medium flex items-center gap-2 group"
+              data-category="ai"
+            >
+              <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-200" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              AI
+            </button>
+            <button 
+              onclick="filterProjects('other')" 
+              class="filter-btn px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white border border-white/20 hover:bg-white/20 transition-all duration-300 font-medium flex items-center gap-2 group"
+              data-category="other"
+            >
+              <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-200" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              Other
+            </button>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+          <!-- Project 1: Finance Tracker -->
+          <div class="project-card" data-categories="backend" data-aos="flip-left" data-aos-delay="100">
+            <div class="block rounded-2xl bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:shadow-[0_16px_64px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-4 border border-white/20 overflow-hidden cursor-pointer" onclick="openProjectModal('finance-tracker')">
+              <div class="overflow-hidden bg-no-repeat bg-cover h-48 group">
+                <img class="rounded-t-2xl w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="src/image/finance.png" alt="Finance Tracker" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-3">
+                  <h5 class="text-xl font-bold leading-tight text-neutral-800 gradient-text">Finance Tracker</h5>
+                  <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Backend</span>
+                </div>
+                <p class="text-sm text-neutral-600 leading-relaxed mb-4">
+                  A comprehensive backend application for tracking expenses and income with authentication.
                 </p>
-                <a href="https://github.com/Aguh18/AtehaFinanceTracker" class="text-primary hover:text-blue-600 transition-colors duration-300">
-                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.466-1.332-5.466-5.931 0-1.311.469-2.381 1.236-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3-.405 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.234 2.904 1.234 3.221 0 2.605-1.33 3.621-2.602 3.813.266.229.515.682.515 1.374v2.042c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                  </svg>
-                </a>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs text-neutral-500 bg-gray-100 px-3 py-1 rounded-full">
+                    Go, GORM, PostgreSQL
+                  </p>
+                  <div class="text-primary hover:text-blue-600 transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.466-1.332-5.466-5.931 0-1.311.469-2.381 1.236-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3-.405 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.234 2.904 1.234 3.221 0 2.605-1.33 3.621-2.602 3.813.266.229.515.682.515 1.374v2.042c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          
-          <!-- card -->
-          <div
-            data-aos="flip-right"
-            class="block lg:w-[40%] mb-20 rounded-2xl bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:shadow-[0_16px_64px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-4 border border-white/20 overflow-hidden"
-          >
-            <div class="overflow-hidden bg-no-repeat bg-cover h-1/2 group">
-              <img
-                class="rounded-t-2xl w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                src="src/image/temansejati.png"
-                alt="Teman Sejati"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div class="p-8 h-1/2">
-              <h5
-                class="mb-3 text-xl font-bold leading-tight text-neutral-800 gradient-text"
-              >
-                Teman Sejati
-              </h5>
-              <p class="mb-4 text-base text-secondery leading-relaxed">
-                A website utilized by the success team to register supporting
-                participants and capture their preferences for desired
-                activities.
-              </p>
-              <div class="flex items-center justify-between">
-                <p class="text-sm text-neutral-500 bg-gray-100 px-3 py-1 rounded-full">
-                  Build with : Tailwind, alphinejs, Laravel, Livewire
+
+          <!-- Project 2: Teman Sejati -->
+          <div class="project-card" data-categories="frontend backend" data-aos="flip-right" data-aos-delay="200">
+            <div class="block rounded-2xl bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:shadow-[0_16px_64px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-4 border border-white/20 overflow-hidden cursor-pointer" onclick="openProjectModal('teman-sejati')">
+              <div class="overflow-hidden bg-no-repeat bg-cover h-48 group">
+                <img class="rounded-t-2xl w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="src/image/temansejati.png" alt="Teman Sejati" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-3">
+                  <h5 class="text-xl font-bold leading-tight text-neutral-800 gradient-text">Teman Sejati</h5>
+                  <div class="flex gap-1">
+                    <span class="text-xs bg-blue-500/20 text-blue-600 px-2 py-1 rounded-full">Frontend</span>
+                    <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Backend</span>
+                  </div>
+                </div>
+                <p class="text-sm text-neutral-600 leading-relaxed mb-4">
+                  A website for registering supporting participants and capturing activity preferences.
                 </p>
-                <div class="text-primary hover:text-blue-600 transition-colors duration-300">
-                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.466-1.332-5.466-5.931 0-1.311.469-2.381 1.236-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3-.405 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.234 2.904 1.234 3.221 0 2.605-1.33 3.621-2.602 3.813.266.229.515.682.515 1.374v2.042c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs text-neutral-500 bg-gray-100 px-3 py-1 rounded-full">
+                    Tailwind, Alpine.js, Laravel
+                  </p>
+                  <div class="text-primary hover:text-blue-600 transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.466-1.332-5.466-5.931 0-1.311.469-2.381 1.236-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3-.405 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.234 2.904 1.234 3.221 0 2.605-1.33 3.621-2.602 3.813.266.229.515.682.515 1.374v2.042c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: AI Chat Assistant -->
+          <div class="project-card" data-categories="ai frontend" data-aos="flip-left" data-aos-delay="300">
+            <div class="block rounded-2xl bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:shadow-[0_16px_64px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-4 border border-white/20 overflow-hidden cursor-pointer" onclick="openProjectModal('ai-chat')">
+              <div class="overflow-hidden bg-no-repeat bg-cover h-48 group">
+                <div class="w-full h-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                  <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-3">
+                  <h5 class="text-xl font-bold leading-tight text-neutral-800 gradient-text">AI Chat Assistant</h5>
+                  <div class="flex gap-1">
+                    <span class="text-xs bg-purple-500/20 text-purple-600 px-2 py-1 rounded-full">AI</span>
+                    <span class="text-xs bg-blue-500/20 text-blue-600 px-2 py-1 rounded-full">Frontend</span>
+                  </div>
+                </div>
+                <p class="text-sm text-neutral-600 leading-relaxed mb-4">
+                  An intelligent chatbot powered by machine learning for customer support automation.
+                </p>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs text-neutral-500 bg-gray-100 px-3 py-1 rounded-full">
+                    React, TensorFlow, OpenAI
+                  </p>
+                  <div class="text-primary hover:text-blue-600 transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.466-1.332-5.466-5.931 0-1.311.469-2.381 1.236-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3-.405 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.234 2.904 1.234 3.221 0 2.605-1.33 3.621-2.602 3.813.266.229.515.682.515 1.374v2.042c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: DeFi Dashboard -->
+          <div class="project-card" data-categories="web3 frontend" data-aos="flip-right" data-aos-delay="400">
+            <div class="block rounded-2xl bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:shadow-[0_16px_64px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-4 border border-white/20 overflow-hidden cursor-pointer" onclick="openProjectModal('defi-dashboard')">
+              <div class="overflow-hidden bg-no-repeat bg-cover h-48 group">
+                <div class="w-full h-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
+                  <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-3">
+                  <h5 class="text-xl font-bold leading-tight text-neutral-800 gradient-text">DeFi Dashboard</h5>
+                  <div class="flex gap-1">
+                    <span class="text-xs bg-yellow-500/20 text-yellow-600 px-2 py-1 rounded-full">WEB3</span>
+                    <span class="text-xs bg-blue-500/20 text-blue-600 px-2 py-1 rounded-full">Frontend</span>
+                  </div>
+                </div>
+                <p class="text-sm text-neutral-600 leading-relaxed mb-4">
+                  A decentralized finance dashboard for tracking crypto portfolios and yield farming.
+                </p>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs text-neutral-500 bg-gray-100 px-3 py-1 rounded-full">
+                    React, Web3.js, Ethereum
+                  </p>
+                  <div class="text-primary hover:text-blue-600 transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.466-1.332-5.466-5.931 0-1.311.469-2.381 1.236-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3-.405 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.234 2.904 1.234 3.221 0 2.605-1.33 3.621-2.602 3.813.266.229.515.682.515 1.374v2.042c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Smart Contract Marketplace -->
+          <div class="project-card" data-categories="web3 backend" data-aos="flip-left" data-aos-delay="500">
+            <div class="block rounded-2xl bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:shadow-[0_16px_64px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-4 border border-white/20 overflow-hidden cursor-pointer" onclick="openProjectModal('smart-contract')">
+              <div class="overflow-hidden bg-no-repeat bg-cover h-48 group">
+                <div class="w-full h-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center">
+                  <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-3">
+                  <h5 class="text-xl font-bold leading-tight text-neutral-800 gradient-text">Smart Contract Marketplace</h5>
+                  <div class="flex gap-1">
+                    <span class="text-xs bg-yellow-500/20 text-yellow-600 px-2 py-1 rounded-full">WEB3</span>
+                    <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Backend</span>
+                  </div>
+                </div>
+                <p class="text-sm text-neutral-600 leading-relaxed mb-4">
+                  A decentralized marketplace for trading digital assets using smart contracts.
+                </p>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs text-neutral-500 bg-gray-100 px-3 py-1 rounded-full">
+                    Solidity, Node.js, IPFS
+                  </p>
+                  <div class="text-primary hover:text-blue-600 transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.466-1.332-5.466-5.931 0-1.311.469-2.381 1.236-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3-.405 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.234 2.904 1.234 3.221 0 2.605-1.33 3.621-2.602 3.813.266.229.515.682.515 1.374v2.042c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Data Analytics Platform -->
+          <div class="project-card" data-categories="ai backend other" data-aos="flip-right" data-aos-delay="600">
+            <div class="block rounded-2xl bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:shadow-[0_16px_64px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-4 border border-white/20 overflow-hidden cursor-pointer" onclick="openProjectModal('data-analytics')">
+              <div class="overflow-hidden bg-no-repeat bg-cover h-48 group">
+                <div class="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                  <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-3">
+                  <h5 class="text-xl font-bold leading-tight text-neutral-800 gradient-text">Data Analytics Platform</h5>
+                  <div class="flex gap-1">
+                    <span class="text-xs bg-purple-500/20 text-purple-600 px-2 py-1 rounded-full">AI</span>
+                    <span class="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">Backend</span>
+                    <span class="text-xs bg-gray-500/20 text-gray-600 px-2 py-1 rounded-full">Other</span>
+                  </div>
+                </div>
+                <p class="text-sm text-neutral-600 leading-relaxed mb-4">
+                  A comprehensive analytics platform with machine learning insights and data visualization.
+                </p>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs text-neutral-500 bg-gray-100 px-3 py-1 rounded-full">
+                    Python, TensorFlow, D3.js
+                  </p>
+                  <div class="text-primary hover:text-blue-600 transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.466-1.332-5.466-5.931 0-1.311.469-2.381 1.236-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3-.405 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.234 2.904 1.234 3.221 0 2.605-1.33 3.621-2.602 3.813.266.229.515.682.515 1.374v2.042c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
@@ -647,148 +914,179 @@
         </div>
       </div>
     </section>
-    <!-- portofolio section end -->
+    <!-- Portfolio section end -->
 
     <!-- section Stack skill -->
-    <section id="skills" class="pt-32 pb-32 bg-slate-100">
-      <div>
-        <h2
-          data-aos="fade-up"
-          class="flex justify-center text-4xl font-bold pb-28"
-        >
-          Experience With
-        </h2>
-      </div>
-      <main
-        class="relative flex flex-col justify-center w-[100%] overflow-hidden"
-      >
-        <div class="w-full mx-auto md:px-6">
-          <div class="text-center">
-            <!-- Logo Carousel animation -->
-            <div
-              x-data="{}"
-              x-init="$nextTick(() => {
-                          let ul = $refs.logos;
-                          ul.insertAdjacentHTML('afterend', ul.outerHTML);
-                          ul.nextSibling.setAttribute('aria-hidden', 'true');
-                      })"
-              class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
-            >
-              <ul
-                x-ref="logos"
-                class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
+    <section id="skills" class="pt-28 pb-28 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50 relative overflow-hidden">
+      <!-- Background decoration -->
+      <div class="absolute top-1/3 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/3 left-0 w-80 h-80 bg-blue-400/5 rounded-full blur-3xl"></div>
+      
+      <div class="container relative z-10">
+        <div class="flex justify-start w-full">
+          <div
+            data-aos="fade-up"
+            class="w-full mb-20 text-center"
+          >
+            <span class="inline-block px-4 py-2 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20 mb-4">
+              🛠️ Skills
+            </span>
+            <h1 class="text-4xl font-bold text-dark gradient-text">Experience With</h1>
+          </div>
+        </div>
+        
+        <main class="relative flex flex-col justify-center w-full overflow-hidden">
+          <div class="w-full mx-auto">
+            <div class="text-center">
+              <!-- Logo Carousel animation -->
+              <div
+                x-data="{}"
+                x-init="$nextTick(() => {
+                            let ul = $refs.logos;
+                            ul.insertAdjacentHTML('afterend', ul.outerHTML);
+                            ul.nextSibling.setAttribute('aria-hidden', 'true');
+                        })"
+                class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
               >
-                <li>
-                  <svg
-                    height="100"
-                    role="img"
-                    fill="#F05032"
-                    viewBox="0 0 24 24"
-                    xmlns="https://www.w3.org/2000/svg"
-                  >
-                    <title>Git</title>
-                    <path
-                      d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"
-                    />
-                  </svg>
+                <ul
+                  x-ref="logos"
+                  class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
+                >
+                <li class="skill-icon">
+                  <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 card-hover">
+                    <svg
+                      height="80"
+                      role="img"
+                      fill="#F05032"
+                      viewBox="0 0 24 24"
+                      xmlns="https://www.w3.org/2000/svg"
+                    >
+                      <title>Git</title>
+                      <path
+                        d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"
+                      />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-600 mt-3 text-center">Git</p>
+                  </div>
                 </li>
-                <li>
-                  <svg
-                    height="100"
-                    fill="#06B6D4"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    xmlns="https://www.w3.org/2000/svg"
-                  >
-                    <title>Tailwind CSS</title>
-                    <path
-                      d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"
-                    />
-                  </svg>
+                <li class="skill-icon">
+                  <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 card-hover">
+                    <svg
+                      height="80"
+                      fill="#06B6D4"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      xmlns="https://www.w3.org/2000/svg"
+                    >
+                      <title>Tailwind CSS</title>
+                      <path
+                        d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"
+                      />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-600 mt-3 text-center">Tailwind CSS</p>
+                  </div>
                 </li>
-                <li>
-                  <svg
-                    height="100"
-                    fill="#00ADD8"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    xmlns="https://www.w3.org/2000/svg"
-                  >
-                    <title>Go</title>
-                    <path
-                      d="M1.811 10.231c-.047 0-.058-.023-.035-.059l.246-.315c.023-.035.081-.058.128-.058h4.172c.046 0 .058.035.035.07l-.199.303c-.023.036-.082.07-.117.07zM.047 11.306c-.047 0-.059-.023-.035-.058l.245-.316c.023-.035.082-.058.129-.058h5.328c.047 0 .07.035.058.07l-.093.28c-.012.047-.058.07-.105.07zm2.828 1.075c-.047 0-.059-.035-.035-.07l.163-.292c.023-.035.07-.07.117-.07h2.337c.047 0 .07.035.07.082l-.023.28c0 .047-.047.082-.082.082zm12.129-2.36c-.736.187-1.239.327-1.963.514-.176.046-.187.058-.34-.117-.174-.199-.303-.327-.548-.444-.737-.362-1.45-.257-2.115.175-.795.514-1.204 1.274-1.192 2.22.011.935.654 1.706 1.577 1.835.795.105 1.46-.175 1.987-.77.105-.13.198-.27.315-.434H10.47c-.245 0-.304-.152-.222-.35.152-.362.432-.97.596-1.274a.315.315 0 01.292-.187h4.253c-.023.316-.023.631-.07.947a4.983 4.983 0 01-.958 2.29c-.841 1.11-1.94 1.8-3.33 1.986-1.145.152-2.209-.07-3.143-.77-.865-.655-1.356-1.52-1.484-2.595-.152-1.274.222-2.419.993-3.424.83-1.086 1.928-1.776 3.272-2.02 1.098-.2 2.15-.07 3.096.571.62.41 1.063.97 1.356 1.648.07.105.023.164-.117.2m3.868 6.461c-1.064-.024-2.034-.328-2.852-1.029a3.665 3.665 0 01-1.262-2.255c-.21-1.32.152-2.489.947-3.529.853-1.122 1.881-1.706 3.272-1.95 1.192-.21 2.314-.095 3.33.595.923.63 1.496 1.484 1.648 2.605.198 1.578-.257 2.863-1.344 3.962-.771.783-1.718 1.273-2.805 1.495-.315.06-.63.07-.934.106zm2.78-4.72c-.011-.153-.011-.27-.034-.387-.21-1.157-1.274-1.81-2.384-1.554-1.087.245-1.788.935-2.045 2.033-.21.912.234 1.835 1.075 2.21.643.28 1.285.244 1.905-.07.923-.48 1.425-1.228 1.484-2.233z"
-                    />
-                  </svg>
+                <li class="skill-icon">
+                  <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 card-hover">
+                    <svg
+                      height="80"
+                      fill="#00ADD8"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      xmlns="https://www.w3.org/2000/svg"
+                    >
+                      <title>Go</title>
+                      <path
+                        d="M1.811 10.231c-.047 0-.058-.023-.035-.059l.246-.315c.023-.035.081-.058.128-.058h4.172c.046 0 .058.035.035.07l-.199.303c-.023.036-.082.07-.117.07zM.047 11.306c-.047 0-.059-.023-.035-.058l.245-.316c.023-.035.082-.058.129-.058h5.328c.047 0 .07.035.058.07l-.093.28c-.012.047-.058.07-.105.07zm2.828 1.075c-.047 0-.059-.035-.035-.07l.163-.292c.023-.035.07-.07.117-.07h2.337c.047 0 .07.035.07.082l-.023.28c0 .047-.047.082-.082.082zm12.129-2.36c-.736.187-1.239.327-1.963.514-.176.046-.187.058-.34-.117-.174-.199-.303-.327-.548-.444-.737-.362-1.45-.257-2.115.175-.795.514-1.204 1.274-1.192 2.22.011.935.654 1.706 1.577 1.835.795.105 1.46-.175 1.987-.77.105-.13.198-.27.315-.434H10.47c-.245 0-.304-.152-.222-.35.152-.362.432-.97.596-1.274a.315.315 0 01.292-.187h4.253c-.023.316-.023.631-.07.947a4.983 4.983 0 01-.958 2.29c-.841 1.11-1.94 1.8-3.33 1.986-1.145.152-2.209-.07-3.143-.77-.865-.655-1.356-1.52-1.484-2.595-.152-1.274.222-2.419.993-3.424.83-1.086 1.928-1.776 3.272-2.02 1.098-.2 2.15-.07 3.096.571.62.41 1.063.97 1.356 1.648.07.105.023.164-.117.2m3.868 6.461c-1.064-.024-2.034-.328-2.852-1.029a3.665 3.665 0 01-1.262-2.255c-.21-1.32.152-2.489.947-3.529.853-1.122 1.881-1.706 3.272-1.95 1.192-.21 2.314-.095 3.33.595.923.63 1.496 1.484 1.648 2.605.198 1.578-.257 2.863-1.344 3.962-.771.783-1.718 1.273-2.805 1.495-.315.06-.63.07-.934.106zm2.78-4.72c-.011-.153-.011-.27-.034-.387-.21-1.157-1.274-1.81-2.384-1.554-1.087.245-1.788.935-2.045 2.033-.21.912.234 1.835 1.075 2.21.643.28 1.285.244 1.905-.07.923-.48 1.425-1.228 1.484-2.233z"
+                      />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-600 mt-3 text-center">Go</p>
+                  </div>
                 </li>
-                <li>
-                  <svg
-                    role="img"
-                    height="100"
-                    fill="#E34F26"
-                    viewBox="0 0 24 24"
-                    xmlns="https://www.w3.org/2000/svg"
-                  >
-                    <title>HTML5</title>
-                    <path
-                      d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"
-                    />
-                  </svg>
+                <li class="skill-icon">
+                  <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 card-hover">
+                    <svg
+                      role="img"
+                      height="80"
+                      fill="#E34F26"
+                      viewBox="0 0 24 24"
+                      xmlns="https://www.w3.org/2000/svg"
+                    >
+                      <title>HTML5</title>
+                      <path
+                        d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"
+                      />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-600 mt-3 text-center">HTML5</p>
+                  </div>
                 </li>
-                <li>
-                  <svg
-                    role="img"
-                    height="100"
-                    fill="#777BB4"
-                    viewBox="0 0 24 24"
-                    xmlns="https://www.w3.org/2000/svg"
-                  >
-                    <title>PHP</title>
-                    <path
-                      d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"
-                    />
-                  </svg>
+                <li class="skill-icon">
+                  <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 card-hover">
+                    <svg
+                      role="img"
+                      height="80"
+                      fill="#777BB4"
+                      viewBox="0 0 24 24"
+                      xmlns="https://www.w3.org/2000/svg"
+                    >
+                      <title>PHP</title>
+                      <path
+                        d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"
+                      />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-600 mt-3 text-center">PHP</p>
+                  </div>
                 </li>
-                <li>
-                  <svg
-                    role="img"
-                    viewBox="0 0 24 24"
-                    xmlns="https://www.w3.org/2000/svg"
-                    height="100"
-                    fill="#FCC624"
-                  >
-                    <title>Linux</title>
-                    <path
-                      d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139zm.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105a.086.086 0 01-.004-.021l-.004-.024a1.807 1.807 0 01-.15.706.953.953 0 01-.213.335.71.71 0 00-.088-.042c-.104-.045-.198-.064-.284-.133a1.312 1.312 0 00-.22-.066c.05-.06.146-.133.183-.198.053-.128.082-.264.088-.402v-.02a1.21 1.21 0 00-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 00-.205.334 1.18 1.18 0 00-.09.4v.019c.002.089.008.179.02.267-.193-.067-.438-.135-.607-.202a1.635 1.635 0 01-.018-.2v-.02a1.772 1.772 0 01.15-.768c.082-.22.232-.406.43-.533a.985.985 0 01.594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2.012-.09.013-.18.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.613.613 0 00-.166-.267.248.248 0 00-.183-.064h-.021c-.071.006-.13.04-.186.132a.552.552 0 00-.12.27.944.944 0 00-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268.01.009.02.018.034.024-.07.057-.117.07-.176.136a.304.304 0 01-.131.068 2.62 2.62 0 01-.275-.402 1.772 1.772 0 01-.155-.667 1.759 1.759 0 01.08-.668 1.43 1.43 0 01.283-.535c.128-.133.26-.2.418-.2zm1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.571.571 0 01.016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.139 1.139 0 01-.448-.067 3.566 3.566 0 01-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71-.07-.268-.005-.47.193-.6.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.645 2.645 0 00-.402-.533 1.45 1.45 0 00-.275-.333c.182 0 .338-.03.465-.067a.615.615 0 00.314-.334c.108-.267 0-.697-.345-1.163-.345-.467-.931-.995-1.788-1.521-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.123 8.123 0 01.647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335.039.003.075.006.11.006.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01c.053 0 .105.005.157.014.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602-.369-.066-.61-.2-.723-.4-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336zm7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8.097 8.097 0 01-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065zm-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"
-                    />
-                  </svg>
+                <li class="skill-icon">
+                  <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 card-hover">
+                    <svg
+                      role="img"
+                      viewBox="0 0 24 24"
+                      xmlns="https://www.w3.org/2000/svg"
+                      height="80"
+                      fill="#FCC624"
+                    >
+                      <title>Linux</title>
+                      <path
+                        d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139zm.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105a.086.086 0 01-.004-.021l-.004-.024a1.807 1.807 0 01-.15.706.953.953 0 01-.213.335.71.71 0 00-.088-.042c-.104-.045-.198-.064-.284-.133a1.312 1.312 0 00-.22-.066c.05-.06.146-.133.183-.198.053-.128.082-.264.088-.402v-.02a1.21 1.21 0 00-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 00-.205.334 1.18 1.18 0 00-.09.4v.019c.002.089.008.179.02.267-.193-.067-.438-.135-.607-.202a1.635 1.635 0 01-.018-.2v-.02a1.772 1.772 0 01.15-.768c.082-.22.232-.406.43-.533a.985.985 0 01.594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2.012-.09.013-.18.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.613.613 0 00-.166-.267.248.248 0 00-.183-.064h-.021c-.071.006-.13.04-.186.132a.552.552 0 00-.12.27.944.944 0 00-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268.01.009.02.018.034.024-.07.057-.117.07-.176.136a.304.304 0 01-.131.068 2.62 2.62 0 01-.275-.402 1.772 1.772 0 01-.155-.667 1.759 1.759 0 01.08-.668 1.43 1.43 0 01.283-.535c.128-.133.26-.2.418-.2zm1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.571.571 0 01.016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.139 1.139 0 01-.448-.067 3.566 3.566 0 01-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71-.07-.268-.005-.47.193-.6.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.645 2.645 0 00-.402-.533 1.45 1.45 0 00-.275-.333c.182 0 .338-.03.465-.067a.615.615 0 00.314-.334c.108-.267 0-.697-.345-1.163-.345-.467-.931-.995-1.788-1.521-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.123 8.123 0 01.647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335.039.003.075.006.11.006.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01c.053 0 .105.005.157.014.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602-.369-.066-.61-.2-.723-.4-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336zm7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8.097 8.097 0 01-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065zm-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"
+                      />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-600 mt-3 text-center">Linux</p>
+                  </div>
                 </li>
-                <li>
-                  <svg
-                    role="img"
-                    viewBox="0 0 24 24"
-                    xmlns="https://www.w3.org/2000/svg"
-                    height="100"
-                    fill="#4169E1"
-                  >
-                    <title>PostgreSQL</title>
-                    <path
-                      d="M23.5594 14.7228a.5269.5269 0 0 0-.0563-.1191c-.139-.2632-.4768-.3418-1.0074-.2321-1.6533.3411-2.2935.1312-2.5256-.0191 1.342-2.0482 2.445-4.522 3.0411-6.8297.2714-1.0507.7982-3.5237.1222-4.7316a1.5641 1.5641 0 0 0-.1509-.235C21.6931.9086 19.8007.0248 17.5099.0005c-1.4947-.0158-2.7705.3461-3.1161.4794a9.449 9.449 0 0 0-.5159-.0816 8.044 8.044 0 0 0-1.3114-.1278c-1.1822-.0184-2.2038.2642-3.0498.8406-.8573-.3211-4.7888-1.645-7.2219.0788C.9359 2.1526.3086 3.8733.4302 6.3043c.0409.818.5069 3.334 1.2423 5.7436.4598 1.5065.9387 2.7019 1.4334 3.582.553.9942 1.1259 1.5933 1.7143 1.7895.4474.1491 1.1327.1441 1.8581-.7279.8012-.9635 1.5903-1.8258 1.9446-2.2069.4351.2355.9064.3625 1.39.3772a.0569.0569 0 0 0 .0004.0041 11.0312 11.0312 0 0 0-.2472.3054c-.3389.4302-.4094.5197-1.5002.7443-.3102.064-1.1344.2339-1.1464.8115-.0025.1224.0329.2309.0919.3268.2269.4231.9216.6097 1.015.6331 1.3345.3335 2.5044.092 3.3714-.6787-.017 2.231.0775 4.4174.3454 5.0874.2212.5529.7618 1.9045 2.4692 1.9043.2505 0 .5263-.0291.8296-.0941 1.7819-.3821 2.5557-1.1696 2.855-2.9059.1503-.8707.4016-2.8753.5388-4.1012.0169-.0703.0357-.1207.057-.1362.0007-.0005.0697-.0471.4272.0307a.3673.3673 0 0 0 .0443.0068l.2539.0223.0149.001c.8468.0384 1.9114-.1426 2.5312-.4308.6438-.2988 1.8057-1.0323 1.5951-1.6698zM2.371 11.8765c-.7435-2.4358-1.1779-4.8851-1.2123-5.5719-.1086-2.1714.4171-3.6829 1.5623-4.4927 1.8367-1.2986 4.8398-.5408 6.108-.13-.0032.0032-.0066.0061-.0098.0094-2.0238 2.044-1.9758 5.536-1.9708 5.7495-.0002.0823.0066.1989.0162.3593.0348.5873.0996 1.6804-.0735 2.9184-.1609 1.1504.1937 2.2764.9728 3.0892.0806.0841.1648.1631.2518.2374-.3468.3714-1.1004 1.1926-1.9025 2.1576-.5677.6825-.9597.5517-1.0886.5087-.3919-.1307-.813-.5871-1.2381-1.3223-.4796-.839-.9635-2.0317-1.4155-3.5126zm6.0072 5.0871c-.1711-.0428-.3271-.1132-.4322-.1772.0889-.0394.2374-.0902.4833-.1409 1.2833-.2641 1.4815-.4506 1.9143-1.0002.0992-.126.2116-.2687.3673-.4426a.3549.3549 0 0 0 .0737-.1298c.1708-.1513.2724-.1099.4369-.0417.156.0646.3078.26.3695.4752.0291.1016.0619.2945-.0452.4444-.9043 1.2658-2.2216 1.2494-3.1676 1.0128zm2.094-3.988-.0525.141c-.133.3566-.2567.6881-.3334 1.003-.6674-.0021-1.3168-.2872-1.8105-.8024-.6279-.6551-.9131-1.5664-.7825-2.5004.1828-1.3079.1153-2.4468.079-3.0586-.005-.0857-.0095-.1607-.0122-.2199.2957-.2621 1.6659-.9962 2.6429-.7724.4459.1022.7176.4057.8305.928.5846 2.7038.0774 3.8307-.3302 4.7363-.084.1866-.1633.3629-.2311.5454zm7.3637 4.5725c-.0169.1768-.0358.376-.0618.5959l-.146.4383a.3547.3547 0 0 0-.0182.1077c-.0059.4747-.054.6489-.115.8693-.0634.2292-.1353.4891-.1794 1.0575-.11 1.4143-.8782 2.2267-2.4172 2.5565-1.5155.3251-1.7843-.4968-2.0212-1.2217a6.5824 6.5824 0 0 0-.0769-.2266c-.2154-.5858-.1911-1.4119-.1574-2.5551.0165-.5612-.0249-1.9013-.3302-2.6462.0044-.2932.0106-.5909.019-.8918a.3529.3529 0 0 0-.0153-.1126 1.4927 1.4927 0 0 0-.0439-.208c-.1226-.4283-.4213-.7866-.7797-.9351-.1424-.059-.4038-.1672-.7178-.0869.067-.276.1831-.5875.309-.9249l.0529-.142c.0595-.16.134-.3257.213-.5012.4265-.9476 1.0106-2.2453.3766-5.1772-.2374-1.0981-1.0304-1.6343-2.2324-1.5098-.7207.0746-1.3799.3654-1.7088.5321a5.6716 5.6716 0 0 0-.1958.1041c.0918-1.1064.4386-3.1741 1.7357-4.4823a4.0306 4.0306 0 0 1 .3033-.276.3532.3532 0 0 0 .1447-.0644c.7524-.5706 1.6945-.8506 2.802-.8325.4091.0067.8017.0339 1.1742.081 1.939.3544 3.2439 1.4468 4.0359 2.3827.8143.9623 1.2552 1.9315 1.4312 2.4543-1.3232-.1346-2.2234.1268-2.6797.779-.9926 1.4189.543 4.1729 1.2811 5.4964.1353.2426.2522.4522.2889.5413.2403.5825.5515.9713.7787 1.2552.0696.087.1372.1714.1885.245-.4008.1155-1.1208.3825-1.0552 1.717-.0123.1563-.0423.4469-.0834.8148-.0461.2077-.0702.4603-.0994.7662zm.8905-1.6211c-.0405-.8316.2691-.9185.5967-1.0105a2.8566 2.8566 0 0 0 .135-.0406 1.202 1.202 0 0 0 .1342.103c.5703.3765 1.5823.4213 3.0068.1344-.2016.1769-.5189.3994-.9533.6011-.4098.1903-1.0957.333-1.7473.3636-.7197.0336-1.0859-.0807-1.1721-.151zm.5695-9.2712c-.0059.3508-.0542.6692-.1054 1.0017-.055.3576-.112.7274-.1264 1.1762-.0142.4368.0404.8909.0932 1.3301.1066.887.216 1.8003-.2075 2.7014a3.5272 3.5272 0 0 1-.1876-.3856c-.0527-.1276-.1669-.3326-.3251-.6162-.6156-1.1041-2.0574-3.6896-1.3193-4.7446.3795-.5427 1.3408-.5661 2.1781-.463zm.2284 7.0137a12.3762 12.3762 0 0 0-.0853-.1074l-.0355-.0444c.7262-1.1995.5842-2.3862.4578-3.4385-.0519-.4318-.1009-.8396-.0885-1.2226.0129-.4061.0666-.7543.1185-1.0911.0639-.415.1288-.8443.1109-1.3505.0134-.0531.0188-.1158.0118-.1902-.0457-.4855-.5999-1.938-1.7294-3.253-.6076-.7073-1.4896-1.4972-2.6889-2.0395.5251-.1066 1.2328-.2035 2.0244-.1859 2.0515.0456 3.6746.8135 4.8242 2.2824a.908.908 0 0 1 .0667.1002c.7231 1.3556-.2762 6.2751-2.9867 10.5405zm-8.8166-6.1162c-.025.1794-.3089.4225-.6211.4225a.5821.5821 0 0 1-.0809-.0056c-.1873-.026-.3765-.144-.5059-.3156-.0458-.0605-.1203-.178-.1055-.2844.0055-.0401.0261-.0985.0925-.1488.1182-.0894.3518-.1226.6096-.0867.3163.0441.6426.1938.6113.4186zm7.9305-.4114c.0111.0792-.049.201-.1531.3102-.0683.0717-.212.1961-.4079.2232a.5456.5456 0 0 1-.075.0052c-.2935 0-.5414-.2344-.5607-.3717-.024-.1765.2641-.3106.5611-.352.297-.0414.6111.0088.6356.1851z"
-                    />
-                  </svg>
+                <li class="skill-icon">
+                  <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 card-hover">
+                    <svg
+                      role="img"
+                      viewBox="0 0 24 24"
+                      xmlns="https://www.w3.org/2000/svg"
+                      height="80"
+                      fill="#4169E1"
+                    >
+                      <title>PostgreSQL</title>
+                      <path
+                        d="M23.5594 14.7228a.5269.5269 0 0 0-.0563-.1191c-.139-.2632-.4768-.3418-1.0074-.2321-1.6533.3411-2.2935.1312-2.5256-.0191 1.342-2.0482 2.445-4.522 3.0411-6.8297.2714-1.0507.7982-3.5237.1222-4.7316a1.5641 1.5641 0 0 0-.1509-.235C21.6931.9086 19.8007.0248 17.5099.0005c-1.4947-.0158-2.7705.3461-3.1161.4794a9.449 9.449 0 0 0-.5159-.0816 8.044 8.044 0 0 0-1.3114-.1278c-1.1822-.0184-2.2038.2642-3.0498.8406-.8573-.3211-4.7888-1.645-7.2219.0788C.9359 2.1526.3086 3.8733.4302 6.3043c.0409.818.5069 3.334 1.2423 5.7436.4598 1.5065.9387 2.7019 1.4334 3.582.553.9942 1.1259 1.5933 1.7143 1.7895.4474.1491 1.1327.1441 1.8581-.7279.8012-.9635 1.5903-1.8258 1.9446-2.2069.4351.2355.9064.3625 1.39.3772a.0569.0569 0 0 0 .0004.0041 11.0312 11.0312 0 0 0-.2472.3054c-.3389.4302-.4094.5197-1.5002.7443-.3102.064-1.1344.2339-1.1464.8115-.0025.1224.0329.2309.0919.3268.2269.4231.9216.6097 1.015.6331 1.3345.3335 2.5044.092 3.3714-.6787-.017 2.231.0775 4.4174.3454 5.0874.2212.5529.7618 1.9045 2.4692 1.9043.2505 0 .5263-.0291.8296-.0941 1.7819-.3821 2.5557-1.1696 2.855-2.9059.1503-.8707.4016-2.8753.5388-4.1012.0169-.0703.0357-.1207.057-.1362.0007-.0005.0697-.0471.4272.0307a.3673.3673 0 0 0 .0443.0068l.2539.0223.0149.001c.8468.0384 1.9114-.1426 2.5312-.4308.6438-.2988 1.8057-1.0323 1.5951-1.6698zM2.371 11.8765c-.7435-2.4358-1.1779-4.8851-1.2123-5.5719-.1086-2.1714.4171-3.6829 1.5623-4.4927 1.8367-1.2986 4.8398-.5408 6.108-.13-.0032.0032-.0066.0061-.0098.0094-2.0238 2.044-1.9758 5.536-1.9708 5.7495-.0002.0823.0066.1989.0162.3593.0348.5873.0996 1.6804-.0735 2.9184-.1609 1.1504.1937 2.2764.9728 3.0892.0806.0841.1648.1631.2518.2374-.3468.3714-1.1004 1.1926-1.9025 2.1576-.5677.6825-.9597.5517-1.0886.5087-.3919-.1307-.813-.5871-1.2381-1.3223-.4796-.839-.9635-2.0317-1.4155-3.5126zm6.0072 5.0871c-.1711-.0428-.3271-.1132-.4322-.1772.0889-.0394.2374-.0902.4833-.1409 1.2833-.2641 1.4815-.4506 1.9143-1.0002.0992-.126.2116-.2687.3673-.4426a.3549.3549 0 0 0 .0737-.1298c.1708-.1513.2724-.1099.4369-.0417.156.0646.3078.26.3695.4752.0291.1016.0619.2945-.0452.4444-.9043 1.2658-2.2216 1.2494-3.1676 1.0128zm2.094-3.988-.0525.141c-.133.3566-.2567.6881-.3334 1.003-.6674-.0021-1.3168-.2872-1.8105-.8024-.6279-.6551-.9131-1.5664-.7825-2.5004.1828-1.3079.1153-2.4468.079-3.0586-.005-.0857-.0095-.1607-.0122-.2199.2957-.2621 1.6659-.9962 2.6429-.7724.4459.1022.7176.4057.8305.928.5846 2.7038.0774 3.8307-.3302 4.7363-.084.1866-.1633.3629-.2311.5454zm7.3637 4.5725c-.0169.1768-.0358.376-.0618.5959l-.146.4383a.3547.3547 0 0 0-.0182.1077c-.0059.4747-.054.6489-.115.8693-.0634.2292-.1353.4891-.1794 1.0575-.11 1.4143-.8782 2.2267-2.4172 2.5565-1.5155.3251-1.7843-.4968-2.0212-1.2217a6.5824 6.5824 0 0 0-.0769-.2266c-.2154-.5858-.1911-1.4119-.1574-2.5551.0165-.5612-.0249-1.9013-.3302-2.6462.0044-.2932.0106-.5909.019-.8918a.3529.3529 0 0 0-.0153-.1126 1.4927 1.4927 0 0 0-.0439-.208c-.1226-.4283-.4213-.7866-.7797-.9351-.1424-.059-.4038-.1672-.7178-.0869.067-.276.1831-.5875.309-.9249l.0529-.142c.0595-.16.134-.3257.213-.5012.4265-.9476 1.0106-2.2453.3766-5.1772-.2374-1.0981-1.0304-1.6343-2.2324-1.5098-.7207.0746-1.3799.3654-1.7088.5321a5.6716 5.6716 0 0 0-.1958.1041c.0918-1.1064.4386-3.1741 1.7357-4.4823a4.0306 4.0306 0 0 1 .3033-.276.3532.3532 0 0 0 .1447-.0644c.7524-.5706 1.6945-.8506 2.802-.8325.4091.0067.8017.0339 1.1742.081 1.939.3544 3.2439 1.4468 4.0359 2.3827.8143.9623 1.2552 1.9315 1.4312 2.4543-1.3232-.1346-2.2234.1268-2.6797.779-.9926 1.4189.543 4.1729 1.2811 5.4964.1353.2426.2522.4522.2889.5413.2403.5825.5515.9713.7787 1.2552.0696.087.1372.1714.1885.245-.4008.1155-1.1208.3825-1.0552 1.717-.0123.1563-.0423.4469-.0834.8148-.0461.2077-.0702.4603-.0994.7662zm.8905-1.6211c-.0405-.8316.2691-.9185.5967-1.0105a2.8566 2.8566 0 0 0 .135-.0406 1.202 1.202 0 0 0 .1342.103c.5703.3765 1.5823.4213 3.0068.1344-.2016.1769-.5189.3994-.9533.6011-.4098.1903-1.0957.333-1.7473.3636-.7197.0336-1.0859-.0807-1.1721-.151zm.5695-9.2712c-.0059.3508-.0542.6692-.1054 1.0017-.055.3576-.112.7274-.1264 1.1762-.0142.4368.0404.8909.0932 1.3301.1066.887.216 1.8003-.2075 2.7014a3.5272 3.5272 0 0 1-.1876-.3856c-.0527-.1276-.1669-.3326-.3251-.6162-.6156-1.1041-2.0574-3.6896-1.3193-4.7446.3795-.5427 1.3408-.5661 2.1781-.463zm.2284 7.0137a12.3762 12.3762 0 0 0-.0853-.1074l-.0355-.0444c.7262-1.1995.5842-2.3862.4578-3.4385-.0519-.4318-.1009-.8396-.0885-1.2226.0129-.4061.0666-.7543.1185-1.0911.0639-.415.1288-.8443.1109-1.3505.0134-.0531.0188-.1158.0118-.1902-.0457-.4855-.5999-1.938-1.7294-3.253-.6076-.7073-1.4896-1.4972-2.6889-2.0395.5251-.1066 1.2328-.2035 2.0244-.1859 2.0515.0456 3.6746.8135 4.8242 2.2824a.908.908 0 0 1 .0667.1002c.7231 1.3556-.2762 6.2751-2.9867 10.5405zm-8.8166-6.1162c-.025.1794-.3089.4225-.6211.4225a.5821.5821 0 0 1-.0809-.0056c-.1873-.026-.3765-.144-.5059-.3156-.0458-.0605-.1203-.178-.1055-.2844.0055-.0401.0261-.0985.0925-.1488.1182-.0894.3518-.1226.6096-.0867.3163.0441.6426.1938.6113.4186zm7.9305-.4114c.0111.0792-.049.201-.1531.3102-.0683.0717-.212.1961-.4079.2232a.5456.5456 0 0 1-.075.0052c-.2935 0-.5414-.2344-.5607-.3717-.024-.1765.2641-.3106.5611-.352.297-.0414.6111.0088.6356.1851z"
+                      />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-600 mt-3 text-center">PostgreSQL</p>
+                  </div>
                 </li>
-                <li>
-                  <svg
-                    role="img"
-                    viewBox="0 0 24 24"
-                    xmlns="https://www.w3.org/2000/svg"
-                    height="100"
-                    fill="#4479A1"
-                  >
-                    <title>MySQL</title>
-                    <path
-                      d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.36-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.136 1.4.41l-.213.476a2.726 2.726 0 00-1.064-.23c-.283 0-.502.068-.654.206a.685.685 0 00-.248.524c0 .328.234.61.666.85.393.215 1.187.67 1.187.67.433.305.648.63.648 1.168zm9.382-5.852c-.535-.014-.95.04-1.297.188-.1.04-.26.04-.274.167.055.053.063.14.11.214.08.134.218.313.346.407.14.11.28.216.427.31.26.16.555.255.81.416.145.094.293.213.44.313.073.05.12.14.214.172v-.02c-.046-.06-.06-.147-.105-.214-.067-.067-.134-.127-.2-.193a3.223 3.223 0 00-.695-.675c-.214-.146-.682-.35-.77-.595l-.013-.014c.146-.013.32-.066.46-.106.227-.06.435-.047.67-.106.106-.027.213-.06.32-.094v-.06c-.12-.12-.21-.283-.334-.395a8.867 8.867 0 00-1.104-.823c-.21-.134-.476-.22-.697-.334-.08-.04-.214-.06-.26-.127-.12-.146-.19-.34-.275-.514a17.69 17.69 0 01-.547-1.163c-.12-.262-.193-.523-.34-.763-.69-1.137-1.437-1.826-2.586-2.5-.247-.14-.543-.2-.856-.274-.167-.008-.334-.02-.5-.027-.11-.047-.216-.174-.31-.235-.38-.24-1.364-.76-1.644-.072-.18.434.267.862.422 1.082.115.153.26.328.34.5.047.116.06.235.107.356.106.294.207.622.347.897.073.14.153.287.247.413.054.073.146.107.167.227-.094.136-.1.334-.154.5-.24.757-.146 1.693.194 2.25.107.166.362.534.703.393.3-.12.234-.5.32-.835.02-.08.007-.133.048-.187v.015c.094.188.188.367.274.555.206.328.566.668.867.895.16.12.287.328.487.402v-.02h-.015c-.043-.058-.1-.086-.154-.133a3.445 3.445 0 01-.35-.4 8.76 8.76 0 01-.747-1.218c-.11-.21-.202-.436-.29-.643-.04-.08-.04-.2-.107-.24-.1.146-.247.273-.32.453-.127.288-.14.642-.188 1.01-.027.007-.014 0-.027.014-.214-.052-.287-.274-.367-.46-.2-.475-.233-1.238-.06-1.785.047-.14.247-.582.167-.716-.042-.127-.174-.2-.247-.303a2.478 2.478 0 01-.24-.427c-.16-.374-.24-.788-.414-1.162-.08-.173-.22-.354-.334-.513-.127-.18-.267-.307-.368-.52-.033-.073-.08-.194-.027-.274.014-.054.042-.075.094-.09.088-.072.335.022.422.062.247.1.455.194.662.334.094.066.195.193.315.226h.14c.214.047.455.014.655.073.355.114.675.28.962.46a5.953 5.953 0 012.085 2.286c.08.154.115.295.188.455.14.33.313.663.455.982.14.315.275.636.476.897.1.14.502.213.682.286.133.06.34.115.46.188.23.14.454.3.67.454.11.076.443.243.463.378z"
-                    />
-                  </svg>
+                <li class="skill-icon">
+                  <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 card-hover">
+                    <svg
+                      role="img"
+                      viewBox="0 0 24 24"
+                      xmlns="https://www.w3.org/2000/svg"
+                      height="80"
+                      fill="#4479A1"
+                    >
+                      <title>MySQL</title>
+                      <path
+                        d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.36-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.136 1.4.41l-.213.476a2.726 2.726 0 00-1.064-.23c-.283 0-.502.068-.654.206a.685.685 0 00-.248.524c0 .328.234.61.666.85.393.215 1.187.67 1.187.67.433.305.648.63.648 1.168zm9.382-5.852c-.535-.014-.95.04-1.297.188-.1.04-.26.04-.274.167.055.053.063.14.11.214.08.134.218.313.346.407.14.11.28.216.427.31.26.16.555.255.81.416.145.094.293.213.44.313.073.05.12.14.214.172v-.02c-.046-.06-.06-.147-.105-.214-.067-.067-.134-.127-.2-.193a3.223 3.223 0 00-.695-.675c-.214-.146-.682-.35-.77-.595l-.013-.014c.146-.013.32-.066.46-.106.227-.06.435-.047.67-.106.106-.027.213-.06.32-.094v-.06c-.12-.12-.21-.283-.334-.395a8.867 8.867 0 00-1.104-.823c-.21-.134-.476-.22-.697-.334-.08-.04-.214-.06-.26-.127-.12-.146-.19-.34-.275-.514a17.69 17.69 0 01-.547-1.163c-.12-.262-.193-.523-.34-.763-.69-1.137-1.437-1.826-2.586-2.5-.247-.14-.543-.2-.856-.274-.167-.008-.334-.02-.5-.027-.11-.047-.216-.174-.31-.235-.38-.24-1.364-.76-1.644-.072-.18.434.267.862.422 1.082.115.153.26.328.34.5.047.116.06.235.107.356.106.294.207.622.347.897.073.14.153.287.247.413.054.073.146.107.167.227-.094.136-.1.334-.154.5-.24.757-.146 1.693.194 2.25.107.166.362.534.703.393.3-.12.234-.5.32-.835.02-.08.007-.133.048-.187v.015c.094.188.188.367.274.555.206.328.566.668.867.895.16.12.287.328.487.402v-.02h-.015c-.043-.058-.1-.086-.154-.133a3.445 3.445 0 01-.35-.4 8.76 8.76 0 01-.747-1.218c-.11-.21-.202-.436-.29-.643-.04-.08-.04-.2-.107-.24-.1.146-.247.273-.32.453-.127.288-.14.642-.188 1.01-.027.007-.014 0-.027.014-.214-.052-.287-.274-.367-.46-.2-.475-.233-1.238-.06-1.785.047-.14.247-.582.167-.716-.042-.127-.174-.2-.247-.303a2.478 2.478 0 01-.24-.427c-.16-.374-.24-.788-.414-1.162-.08-.173-.22-.354-.334-.513-.127-.18-.267-.307-.368-.52-.033-.073-.08-.194-.027-.274.014-.054.042-.075.094-.09.088-.072.335.022.422.062.247.1.455.194.662.334.094.066.195.193.315.226h.14c.214.047.455.014.655.073.355.114.675.28.962.46a5.953 5.953 0 012.085 2.286c.08.154.115.295.188.455.14.33.313.663.455.982.14.315.275.636.476.897.1.14.502.213.682.286.133.06.34.115.46.188.23.14.454.3.67.454.11.076.443.243.463.378z"
+                      />
+                    </svg>
+                    <p class="text-sm font-medium text-gray-600 mt-3 text-center">MySQL</p>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -800,28 +1098,39 @@
 
     <!-- end section stack skill -->
     <!-- contact section -->
-    <section data-aos="fade-up" id="contact" class="pt-28">
-      <div class="container mb-28">
-        <div class="w-full">
-          <h1 class="flex justify-center mb-4 text-2xl font-bold lg:text-4xl">
-            Want To Colaborate?
-          </h1>
-          <h4
-            class="flex justify-center text-lg font-bold uppercase text-primary mb-11"
+    <section data-aos="fade-up" id="contact" class="pt-28 pb-28 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50 relative overflow-hidden">
+      <!-- Background decoration -->
+      <div class="absolute top-1/4 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 left-0 w-80 h-80 bg-blue-400/5 rounded-full blur-3xl"></div>
+      
+      <div class="container relative z-10">
+        <div class="flex justify-start w-full">
+          <div
+            data-aos="fade-up"
+            class="w-full mb-20 text-center"
           >
-            Get In Touch
-          </h4>
+            <span class="inline-block px-4 py-2 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20 mb-4">
+              📞 Contact
+            </span>
+            <h1 class="text-4xl font-bold text-dark gradient-text">Want To Collaborate?</h1>
+            <h4 class="text-lg font-bold uppercase text-primary mt-4">
+              Get In Touch
+            </h4>
+          </div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
           <div data-aos="zoom-in" class="flex justify-center">
             <a
-              class="flex flex-col justify-center"
+              class="flex flex-col items-center justify-center p-8 bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 card-hover group"
               href="https://www.linkedin.com/in/asep-teguh-hidayat/"
               target="_blank"
             >
               <svg
-                class="mb-2"
+                class="mb-4 group-hover:scale-110 transition-transform duration-300"
                 role="img"
                 fill="#0A66C2"
-                width="75"
+                width="80"
                 viewBox="0 0 24 24"
                 xmlns="https://www.w3.org/2000/svg"
               >
@@ -830,7 +1139,8 @@
                   d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
                 />
               </svg>
-              <h3 class="flex justify-center">Linkedln</h3>
+              <h3 class="text-xl font-semibold text-dark group-hover:text-primary transition-colors duration-300">LinkedIn</h3>
+              <p class="text-sm text-gray-600 mt-2">Connect with me on LinkedIn</p>
             </a>
           </div>
         </div>
@@ -839,38 +1149,508 @@
     <!-- end section contact -->
 
     <!-- Footer section -->
-    <footer class="pt-24 pb-12 bg-darkblue">
-      <div class="container">
-        <h2 class="px-4 mb-5 text-3xl font-bold text-white lg:text-4xl">
-          Asep Teguh Hidayat
-        </h2>
-        <div class="flex flex-wrap">
-          <div class="w-full px-4 mb-5 text-base md:w-1/2 text-slate-200">
-            <h3 class="text-lg font-semibold">Call me</h3>
-            <p>teguh180902@gmail.com</p>
+    <footer class="pt-24 pb-12 bg-gradient-to-br from-darkblue via-blue-900 to-darkblue relative overflow-hidden">
+      <!-- Background decoration -->
+      <div class="absolute top-1/4 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 left-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
+      
+      <div class="container relative z-10">
+        <div class="flex flex-wrap items-start justify-between mb-16">
+          <div class="w-full px-4 mb-8 lg:w-1/2 lg:mb-0">
+            <h2 class="mb-6 text-3xl font-bold text-white lg:text-4xl gradient-text">
+              Asep Teguh Hidayat
+            </h2>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <h3 class="text-lg font-semibold text-white mb-3">Get In Touch</h3>
+              <p class="text-slate-200 mb-2 flex items-center">
+                <svg class="w-5 h-5 mr-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                </svg>
+                teguh180902@gmail.com
+              </p>
+              <p class="text-slate-200 flex items-center">
+                <svg class="w-5 h-5 mr-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+                Indonesia
+              </p>
+            </div>
           </div>
 
-          <div class="w-full px-4 text-base md:w-1/2 text-slate-200">
-            <h3 class="font-semibold">Navigation</h3>
-            <a class="block" href="#home">Home</a>
-            <a class="block" href="#about">About</a>
-            <a class="block" href="#portofolio">Project</a>
-            <a class="block" href="#experience">Experience</a>
-            <a class="block" href="#contact">Contact</a>
+          <div class="w-full px-4 lg:w-1/2">
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <h3 class="text-lg font-semibold text-white mb-4">Navigation</h3>
+              <div class="grid grid-cols-2 gap-4">
+                <a class="text-slate-200 hover:text-primary transition-colors duration-300 flex items-center" href="#home">
+                  <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                  Home
+                </a>
+                <a class="text-slate-200 hover:text-primary transition-colors duration-300 flex items-center" href="#about">
+                  <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                  About
+                </a>
+                <a class="text-slate-200 hover:text-primary transition-colors duration-300 flex items-center" href="#portofolio">
+                  <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                  Project
+                </a>
+                <a class="text-slate-200 hover:text-primary transition-colors duration-300 flex items-center" href="#experience">
+                  <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                  Experience
+                </a>
+                <a class="text-slate-200 hover:text-primary transition-colors duration-300 flex items-center" href="#skills">
+                  <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                  Skills
+                </a>
+                <a class="text-slate-200 hover:text-primary transition-colors duration-300 flex items-center" href="#contact">
+                  <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                  Contact
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="w-full h-[2px] mt-16 bg-slate-200"></div>
-        <div class="w-full pt-10 text-slate-200">
-          <p>Copyright - Asep Teguh Hidayat - 2023</p>
+        
+        <div class="w-full h-[2px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+        <div class="w-full pt-10 text-center">
+          <p class="text-slate-200">
+            © 2024 <span class="text-primary font-semibold">Asep Teguh Hidayat</span>. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
     <!-- End Footer section -->
 
+    <!-- Project Modal -->
+    <div id="projectModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden">
+      <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+          <!-- Modal Header -->
+          <div class="sticky top-0 bg-white rounded-t-2xl p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+              <h2 id="modalTitle" class="text-2xl font-bold text-dark gradient-text">Project Title</h2>
+              <button onclick="closeProjectModal()" class="text-gray-500 hover:text-gray-700 transition-colors duration-300">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+            <div id="modalCategories" class="flex gap-2 mt-3"></div>
+          </div>
+          
+          <!-- Modal Content -->
+          <div class="p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <!-- Project Image -->
+              <div class="space-y-4">
+                <div class="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl overflow-hidden">
+                  <img id="modalImage" src="" alt="Project" class="w-full h-full object-cover">
+                </div>
+                <div class="flex gap-4">
+                  <a id="modalGithub" href="#" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.466-1.332-5.466-5.931 0-1.311.469-2.381 1.236-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3-.405 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.234 2.904 1.234 3.221 0 2.605-1.33 3.621-2.602 3.813.266.229.515.682.515 1.374v2.042c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                  </a>
+                  <a id="modalLive" href="#" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                    Live Demo
+                  </a>
+                </div>
+              </div>
+              
+              <!-- Project Details -->
+              <div class="space-y-6">
+                <div>
+                  <h3 class="text-lg font-semibold text-dark mb-3">Description</h3>
+                  <p id="modalDescription" class="text-gray-600 leading-relaxed"></p>
+                </div>
+                
+                <div>
+                  <h3 class="text-lg font-semibold text-dark mb-3">Technologies Used</h3>
+                  <div id="modalTech" class="flex flex-wrap gap-2"></div>
+                </div>
+                
+                <div>
+                  <h3 class="text-lg font-semibold text-dark mb-3">Key Features</h3>
+                  <ul id="modalFeatures" class="space-y-2 text-gray-600"></ul>
+                </div>
+                
+                <div>
+                  <h3 class="text-lg font-semibold text-dark mb-3">Project Timeline</h3>
+                  <p id="modalTimeline" class="text-gray-600"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="dist/js/script.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
+      
+      // Project data
+      const projectsData = {
+        'finance-tracker': {
+          title: 'Finance Tracker',
+          categories: ['Backend'],
+          image: 'src/image/finance.png',
+          description: 'A comprehensive backend application designed to help users track their personal finances with precision and ease. The system provides detailed insights into spending patterns, income tracking, and budget management.',
+          technologies: ['Go', 'GORM', 'PostgreSQL', 'Fiber', 'JWT'],
+          features: [
+            'User authentication and authorization',
+            'Expense and income tracking',
+            'Budget planning and monitoring',
+            'Financial reports and analytics',
+            'RESTful API architecture'
+          ],
+          timeline: '3 months (August 2023 - November 2023)',
+          github: 'https://github.com/Aguh18/AtehaFinanceTracker',
+          live: '#'
+        },
+        'teman-sejati': {
+          title: 'Teman Sejati',
+          categories: ['Frontend', 'Backend'],
+          image: 'src/image/temansejati.png',
+          description: 'A modern web application designed for event management and participant registration. The platform streamlines the process of organizing events and managing participant preferences.',
+          technologies: ['Tailwind CSS', 'Alpine.js', 'Laravel', 'Livewire', 'MySQL'],
+          features: [
+            'Participant registration system',
+            'Event preference management',
+            'Real-time updates with Livewire',
+            'Responsive design',
+            'Admin dashboard for event management'
+          ],
+          timeline: '2 months (June 2023 - August 2023)',
+          github: '#',
+          live: '#'
+        },
+        'ai-chat': {
+          title: 'AI Chat Assistant',
+          categories: ['AI', 'Frontend'],
+          image: '',
+          description: 'An intelligent chatbot powered by advanced machine learning algorithms. The system provides automated customer support with natural language processing capabilities.',
+          technologies: ['React', 'TensorFlow', 'OpenAI API', 'Node.js', 'Socket.io'],
+          features: [
+            'Natural language processing',
+            'Real-time chat interface',
+            'Multi-language support',
+            'Sentiment analysis',
+            'Integration with external APIs'
+          ],
+          timeline: '4 months (January 2024 - April 2024)',
+          github: '#',
+          live: '#'
+        },
+        'defi-dashboard': {
+          title: 'DeFi Dashboard',
+          categories: ['WEB3', 'Frontend'],
+          image: '',
+          description: 'A decentralized finance dashboard that provides real-time tracking of cryptocurrency portfolios, yield farming opportunities, and DeFi protocol analytics.',
+          technologies: ['React', 'Web3.js', 'Ethereum', 'MetaMask', 'D3.js'],
+          features: [
+            'Real-time crypto portfolio tracking',
+            'Yield farming analytics',
+            'DeFi protocol integration',
+            'Interactive charts and graphs',
+            'Wallet connection and management'
+          ],
+          timeline: '3 months (September 2023 - December 2023)',
+          github: '#',
+          live: '#'
+        },
+        'smart-contract': {
+          title: 'Smart Contract Marketplace',
+          categories: ['WEB3', 'Backend'],
+          image: '',
+          description: 'A decentralized marketplace built on blockchain technology for trading digital assets. The platform uses smart contracts to ensure secure and transparent transactions.',
+          technologies: ['Solidity', 'Node.js', 'IPFS', 'Web3.js', 'Hardhat'],
+          features: [
+            'Smart contract-based trading',
+            'Digital asset management',
+            'Decentralized storage with IPFS',
+            'Escrow system for secure transactions',
+            'Gas optimization techniques'
+          ],
+          timeline: '5 months (March 2023 - August 2023)',
+          github: '#',
+          live: '#'
+        },
+        'data-analytics': {
+          title: 'Data Analytics Platform',
+          categories: ['AI', 'Backend', 'Other'],
+          image: '',
+          description: 'A comprehensive analytics platform that combines machine learning with data visualization to provide actionable insights from complex datasets.',
+          technologies: ['Python', 'TensorFlow', 'D3.js', 'Flask', 'PostgreSQL'],
+          features: [
+            'Machine learning model training',
+            'Interactive data visualizations',
+            'Real-time data processing',
+            'Custom dashboard creation',
+            'Predictive analytics capabilities'
+          ],
+          timeline: '6 months (January 2023 - July 2023)',
+          github: '#',
+          live: '#'
+        }
+      };
+
+      // Filter projects function
+      function filterProjects(category) {
+        const projectCards = document.querySelectorAll('.project-card');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        // Update active button with enhanced visual feedback
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-primary/30', 'border-primary/40');
+          btn.classList.add('bg-white/10', 'border-white/20');
+          btn.style.transform = 'scale(1)';
+          btn.style.boxShadow = 'none';
+        });
+        
+        const activeButton = document.querySelector(`[data-category="${category}"]`);
+        if (activeButton) {
+          activeButton.classList.add('active', 'bg-primary/30', 'border-primary/40');
+          activeButton.classList.remove('bg-white/10', 'border-white/20');
+          activeButton.style.transform = 'scale(1.05)';
+          activeButton.style.boxShadow = '0 0 20px rgba(59, 130, 246, 0.4)';
+        }
+        
+        // Add loading state
+        const projectsGrid = document.getElementById('projects-grid');
+        projectsGrid.style.opacity = '0.7';
+        projectsGrid.style.transform = 'scale(0.98)';
+        
+        // Filter projects with enhanced animation
+        setTimeout(() => {
+          let visibleCount = 0;
+          projectCards.forEach((card, index) => {
+            const categories = card.getAttribute('data-categories').split(' ');
+            
+            if (category === 'all' || categories.includes(category)) {
+              card.style.display = 'block';
+              card.style.animation = 'none';
+              // Stagger the animation for better visual effect
+              setTimeout(() => {
+                card.style.animation = 'fadeIn 0.6s ease-out';
+                card.style.transform = 'translateY(0) scale(1)';
+                card.style.opacity = '1';
+              }, index * 100);
+              visibleCount++;
+            } else {
+              card.style.display = 'none';
+              card.style.transform = 'translateY(20px) scale(0.95)';
+              card.style.opacity = '0';
+            }
+          });
+          
+          // Restore grid appearance
+          projectsGrid.style.opacity = '1';
+          projectsGrid.style.transform = 'scale(1)';
+          
+          // Add a subtle notification for the number of projects shown
+          if (visibleCount > 0) {
+            showFilterNotification(`${visibleCount} project${visibleCount > 1 ? 's' : ''} found`);
+          }
+        }, 150);
+      }
+      
+      // Show filter notification
+      function showFilterNotification(message) {
+        // Remove existing notification
+        const existingNotification = document.querySelector('.filter-notification');
+        if (existingNotification) {
+          existingNotification.remove();
+        }
+        
+        // Create new notification
+        const notification = document.createElement('div');
+        notification.className = 'filter-notification fixed top-4 right-4 bg-white/90 backdrop-blur-sm text-gray-800 px-4 py-2 rounded-lg shadow-lg border border-white/20 z-50 transform translate-x-full transition-transform duration-300';
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+          notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Remove after 2 seconds
+        setTimeout(() => {
+          notification.style.transform = 'translateX(full)';
+          setTimeout(() => {
+            if (notification.parentNode) {
+              notification.remove();
+            }
+          }, 300);
+        }, 2000);
+      }
+
+      // Tech stack logos mapping
+      const techLogos = {
+        // Backend Technologies
+        'Go': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M11.141 20.93c-1.83-.207-3.378-.84-4.626-1.9C5.267 16.97 4.5 15.04 4.5 12.8c0-2.24.767-4.17 2.015-5.23 1.248-1.06 2.796-1.693 4.626-1.9.207-.023.414-.035.622-.035.208 0 .415.012.622.035 1.83.207 3.378.84 4.626 1.9C13.733 8.63 14.5 10.56 14.5 12.8c0 2.24-.767 4.17-2.015 5.23-1.248 1.06-2.796 1.693-4.626 1.9-.207.023-.414.035-.622.035-.208 0-.415-.012-.622-.035zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/></svg>`,
+        'GORM': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'PostgreSQL': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'MySQL': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'Fiber': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'JWT': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'Laravel': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'PHP': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'Flask': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        
+        // Frontend Technologies
+        'React': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.276 0-.558.015-.842.045-3.9.445-6.275 2.303-6.275 6.28 0 3.893 2.662 6.74 6.613 6.74 1.346 0 3.107-.96 4.888-2.622 1.78 1.653 3.542 2.602 4.887 2.602.276 0 .558-.015.842-.045 3.9-.445 6.275-2.303 6.275-6.28 0-3.893-2.662-6.74-6.613-6.74zm-.006 1.237c.28 0 .558.015.837.045 2.87.328 4.607 2.303 4.607 5.003 0 2.695-1.737 4.67-4.607 4.995-.279.03-.557.045-.837.045-.28 0-.558-.015-.837-.045-2.87-.328-4.607-2.303-4.607-5.003 0-2.695 1.737-4.67 4.607-4.995.279-.03.557-.045.837-.045z"/></svg>`,
+        'Node.js': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142-0.114-0.253-0.256-0.253H9.882c-0.139,0-0.255,0.112-0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.604 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,0.136,0.069,0.188,0.074,0.195c0.155,1.08,0.67,3.149,3.785,3.149C17.605,16.007,19.099,15.004,19.099,13.993z"/></svg>`,
+        'Socket.io': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'HTML5': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h5.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>`,
+        'CSS3': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h5.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>`,
+        'Tailwind CSS': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.666,1.58,3.027,2.962,6.001,2.962c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/></svg>`,
+        'JavaScript': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.414-2.25-.18-3.541-.96-4.06-2.485l-1.845.495c.21.84.75 2.485 2.805 3.285 2.205.87 5.235.54 6.255-1.005.375-.96.495-1.71.405-2.625z M8.25 12.75c-.555 0-.975-.42-.975-.975s.42-.975.975-.975.975.42.975.975-.42.975-.975.975z"/></svg>`,
+        
+        // Web3 Technologies
+        'Ethereum': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>`,
+        'MetaMask': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M21.49 1L13.5 8.99l1.5-3.5L21.49 1zM2.5 1l6.5 5.49-1.5-3.5L2.5 1zM1 5.5l1.5 12L9.5 9.5 1 5.5zm20 0L21.5 17.5l-7.5-8L21 5.5zM9.5 9.5l1.5 8.5L21.5 17.5 9.5 9.5z"/></svg>`,
+        'Solidity': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'IPFS': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'Web3.js': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'Hardhat': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        
+        // AI/ML Technologies
+        'TensorFlow': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M1.292 5.856L11.54 0v24l-4.095-2.378V7.603l-6.168 3.564.015-5.31zM21.9 12.396l-1.463-1.5 2.443-2.394L24 10.596l-2.1 1.8zM13.46 0l10.248 5.856L22.54 7.26 12.292 1.404 13.46 0zM13.46 24l10.248-5.856-1.168-1.404L12.292 22.596 13.46 24z"/></svg>`,
+        'OpenAI': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142-.0852 4.783-2.7582a.7712.7712 0 0 0 .7806 0l5.8428 3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>`,
+        'D3.js': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        
+        // Other Technologies
+        'Git': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg>`,
+        'Linux': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'Livewire': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        
+        // Default fallback for unknown technologies
+        'default': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`
+      };
+
+      // Category logos mapping
+      const categoryLogos = {
+        'Backend': `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>`,
+        'Frontend': `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>`,
+        'WEB3': `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'AI': `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>`,
+        'Other': `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        'default': `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`
+      };
+
+      // Open project modal
+      function openProjectModal(projectId) {
+        const project = projectsData[projectId];
+        if (!project) return;
+        
+        // Update modal content
+        document.getElementById('modalTitle').textContent = project.title;
+        document.getElementById('modalImage').src = project.image || 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmMWY1Zjk7c3RvcC1vcGFjaXR5OjEiIC8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2U1ZTdmMjtzdG9wLW9wYWNpdHk6MSIgLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K';
+        document.getElementById('modalDescription').textContent = project.description;
+        document.getElementById('modalTimeline').textContent = project.timeline;
+        document.getElementById('modalGithub').href = project.github;
+        document.getElementById('modalLive').href = project.live;
+        
+        // Update categories with logos
+        const categoriesContainer = document.getElementById('modalCategories');
+        categoriesContainer.innerHTML = '';
+        project.categories.forEach(category => {
+          const categoryDiv = document.createElement('div');
+          categoryDiv.className = 'flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all duration-200 hover:scale-105';
+          
+          // Get the logo for this category, fallback to default if not found
+          const logo = categoryLogos[category] || categoryLogos['default'];
+          
+          switch(category) {
+            case 'Backend':
+              categoryDiv.className += ' bg-primary/20 text-primary border border-primary/30';
+              break;
+            case 'Frontend':
+              categoryDiv.className += ' bg-blue-500/20 text-blue-600 border border-blue-500/30';
+              break;
+            case 'WEB3':
+              categoryDiv.className += ' bg-yellow-500/20 text-yellow-600 border border-yellow-500/30';
+              break;
+            case 'AI':
+              categoryDiv.className += ' bg-purple-500/20 text-purple-600 border border-purple-500/30';
+              break;
+            case 'Other':
+              categoryDiv.className += ' bg-gray-500/20 text-gray-600 border border-gray-500/30';
+              break;
+          }
+          
+          categoryDiv.innerHTML = `
+            <div class="flex-shrink-0">
+              ${logo}
+            </div>
+            <span class="font-medium">${category}</span>
+          `;
+          categoriesContainer.appendChild(categoryDiv);
+        });
+        
+        // Update technologies with logos
+        const techContainer = document.getElementById('modalTech');
+        techContainer.innerHTML = '';
+        project.technologies.forEach(tech => {
+          const techDiv = document.createElement('div');
+          techDiv.className = 'flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm transition-colors duration-200';
+          
+          // Get the logo for this technology, fallback to default if not found
+          const logo = techLogos[tech] || techLogos['default'];
+          
+          techDiv.innerHTML = `
+            <div class="text-gray-600">
+              ${logo}
+            </div>
+            <span class="text-gray-700 font-medium">${tech}</span>
+          `;
+          techContainer.appendChild(techDiv);
+        });
+        
+        // Update features
+        const featuresContainer = document.getElementById('modalFeatures');
+        featuresContainer.innerHTML = '';
+        project.features.forEach(feature => {
+          const li = document.createElement('li');
+          li.className = 'flex items-start';
+          li.innerHTML = `
+            <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+            <span>${feature}</span>
+          `;
+          featuresContainer.appendChild(li);
+        });
+        
+        // Show modal
+        document.getElementById('projectModal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      // Close project modal
+      function closeProjectModal() {
+        document.getElementById('projectModal').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+
+      // Close modal when clicking outside
+      document.getElementById('projectModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeProjectModal();
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeProjectModal();
+        }
+      });
     </script>
   </body>
 </html>
