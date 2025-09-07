@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://aguh18.github.io/Personal-website/sitemap.xml
+
+# Block access to admin files
+Disallow: /admin/
+
+# Block access to data files (if needed)
+# Disallow: /data/
+
+# Allow crawling of CSS and JS files
+Allow: /js/
+Allow: /src/
+Allow: /dist/
