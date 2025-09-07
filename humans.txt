@@ -1,0 +1,15 @@
+/* TEAM */
+Developer: Asep Teguh Hidayat
+Contact: teguh [at] asepteguhhidayat.my.id
+Twitter: @asepteguhhidayat
+From: Indonesia
+
+/* SITE */
+Last update: 2024/12/22
+Language: English / Indonesian
+Doctype: HTML5
+IDE: Visual Studio Code
+Standards: HTML5, CSS3, JavaScript ES6+
+Framework: Tailwind CSS
+Components: Responsive Design, SEO Optimized
+Software: Git, GitHub Pages

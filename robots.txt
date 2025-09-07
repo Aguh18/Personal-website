@@ -1,8 +1,15 @@
 User-agent: *
 Allow: /
 
+# Sitemaps
+Sitemap: https://asepteguhhidayat.my.id/sitemap.xml
+
+# Additional files
+# Humans.txt: https://asepteguhhidayat.my.id/humans.txtagent: *
+Allow: /
+
 # Sitemap
-Sitemap: https://aguh18.github.io/Personal-website/sitemap.xml
+Sitemap: https://asepteguhhidayat.my.id/sitemap.xml
 
 # Block access to admin files
 Disallow: /admin/
